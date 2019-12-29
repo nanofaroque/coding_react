@@ -11,7 +11,6 @@ class SongList extends React.Component{
 // get the state from redux store
 // and pass as props to our component
 const mapStateToProps=(state)=>{
-
     return { songs:state.songs};
 }
 export default connect(mapStateToProps)(SongList);
