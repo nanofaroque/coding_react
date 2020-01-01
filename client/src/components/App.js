@@ -1,22 +1,26 @@
 import React from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
 
-const pageA = () => {
+const PageOne = () => {
     return <div>Page A</div>
 };
 
-const pageB = () => {
-    return <div>Page B</div>
+const PageTwo = () => {
+    return <div>
+        Page B
+        <button>Click Here</button>
+    </div>
 };
 
 function App() {
     return (
         <div className="App">
             <BrowserRouter>
-                <Route path="/" exact component={pageA}></Route>
-                <Route path="/pageb" exact component={pageB}></Route>
+                <Route path="/" exact component={PageOne}></Route>
+                <Route path="/pagetwo" component={PageTwo}></Route>
             </BrowserRouter>
         </div>
     );
 }
+
 export default App;
