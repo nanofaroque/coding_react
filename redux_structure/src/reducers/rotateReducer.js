@@ -1,6 +1,8 @@
+import {ROTATE} from "../actions/rotateAction";
+
 export default (state, action) => {
     switch (action.type) {
-        case 'rotate':
+        case ROTATE:
             return {
                 rotating: action.payload
             };

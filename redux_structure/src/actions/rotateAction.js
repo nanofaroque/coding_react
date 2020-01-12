@@ -1,7 +1,8 @@
-const rotateAction = (payload) => {
+export const ROTATE = 'ROTATE';
+
+export default function rotateAction(payload) {
     return {
-        type: "rotate",
+        type: ROTATE,
         payload
     }
 }
-export default rotateAction;
