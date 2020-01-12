@@ -1,6 +1,6 @@
 export default (state, action) => {
     switch (action.type) {
-        case 'ROTATE':
+        case 'rotate':
             return {
                 rotating: action.payload
             };
