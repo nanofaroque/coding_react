@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import appStrings from "./res/strings/app";
-
+import {other} from "./res/strings";
+import {appStrings} from "./res/strings";
 function App() {
   return (
     <div className="App">
@@ -18,6 +18,7 @@ function App() {
           rel="noopener noreferrer"
         >
           {appStrings.welcome.heading}
+          {other.mystring.heading}
         </a>
       </header>
     </div>
