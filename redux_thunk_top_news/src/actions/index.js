@@ -1,11 +1,17 @@
-export const SELECT_CHANNEL = 'SELECT_CHANNEL';
 export const REQUEST_USERS = 'REQUEST_USERS';
 export const RECEIVE_USERS = 'RECEIVE_USERS';
 
 export const requestUsers = () => ({
-    type: REQUEST_USERS,
+    type: REQUEST_USERS
 });
-export const receiveUsers = json => ({
+export const receiveUsers = (users) => ({
     type: RECEIVE_USERS,
-    json: json,
+    users: users
 });
+
+export const errorActions=(error)=>{
+    return{
+        type: "ERROR",
+        data:error
+    }
+}

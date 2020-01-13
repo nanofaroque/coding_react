@@ -3,19 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
-import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
-import {createStore, applyMiddleware} from 'redux';
-//import {logger} from "redux-logger";
-import rootReducers from './reducers'
+import thunkMiddleware from 'redux-thunk'
+import { createLogger } from 'redux-logger'
+import { createStore, applyMiddleware } from 'redux'
+import rootReducer from './reducers';
+const loggerMiddleware = createLogger();
 
-const store = createStore(rootReducers, applyMiddleware(thunk));
-const onStateChange = (function (global) {
-    global._state = this.getState()
-}.bind(store, global))
-store.subscribe(onStateChange)
-onStateChange()
-console.info('Application state is available via global _state object.', '_state=', global._state)
+
+const store = createStore(
+    rootReducer,
+    applyMiddleware(
+        thunkMiddleware, // lets us dispatch() functions
+        loggerMiddleware // neat middleware that logs actions
+    )
+)
 ReactDOM.render(
     <Provider store={store}>
         <App />

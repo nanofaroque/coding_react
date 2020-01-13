@@ -1,12 +1,17 @@
 import {RECEIVE_USERS} from "../actions";
-
-const receiveUsersReducer = (state = {}, action) => {
+const initialState = {
+    users: {},
+    isFetching: false,
+    isError: false
+};
+const receiveUsersReducer = (state=initialState, action) => {
     switch (action.type) {
         case RECEIVE_USERS:
             return {
                 ...state,
-                users: action.json,
-                loading: false
+                users: action.users,
+                isFetching: false,
+                isError: false
             };
         default:
             return state;

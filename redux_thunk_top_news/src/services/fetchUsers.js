@@ -1,5 +1,5 @@
-import {receiveUsers, requestUsers} from "../actions";
-export function fetchUsers(channel) {
+import {receiveUsers, requestUsers, errorActions} from "../actions";
+export const fetchUsers = ()=> {
     return function (dispatch) {
         dispatch(requestUsers());
         return fetch(`https://jsonplaceholder.typicode.com/users`)
@@ -10,6 +10,6 @@ export function fetchUsers(channel) {
             .then((json) => {
                     dispatch(receiveUsers(json));
                 },
-            );
+            ).catch(error=>dispatch(errorActions(error)))
     };
 };
