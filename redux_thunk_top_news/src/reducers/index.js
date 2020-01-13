@@ -1,12 +1,12 @@
 import {combineReducers} from "redux";
 import selectChannelReducer from "./selectChannleReducer";
-import requestPostReducer from "./requestPostReducer";
-import receivePostReducer from "./receivePostReducer";
+import requestUserReducer from "./requestUserReducer";
+import receiveUsersReducer from "./receiveUsersReducer";
 
 export default combineReducers(
     {
         select: selectChannelReducer,
-        request: requestPostReducer,
-        receive: receivePostReducer
+        request: requestUserReducer,
+        receive: receiveUsersReducer
     }
 )

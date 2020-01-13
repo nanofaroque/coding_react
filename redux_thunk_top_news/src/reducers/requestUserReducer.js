@@ -1,8 +1,8 @@
-import {RECEIVE_POSTS} from "../actions";
+import {REQUEST_USERS} from "../actions";
 
-const receivePostReducer = (state = {}, action) => {
+const requestUserReducer = (state = {}, action) => {
     switch (action.type) {
-        case RECEIVE_POSTS:
+        case REQUEST_USERS:
             return {
                 ...state,
                 json: action.json,
@@ -12,4 +12,4 @@ const receivePostReducer = (state = {}, action) => {
             return state;
     }
 };
-export default receivePostReducer;
+export default requestUserReducer;

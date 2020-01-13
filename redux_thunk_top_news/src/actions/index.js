@@ -1,15 +1,11 @@
 export const SELECT_CHANNEL = 'SELECT_CHANNEL';
-export const REQUEST_POSTS = 'REQUEST_POSTS';
-export const RECEIVE_POSTS = 'RECEIVE_POSTS';
+export const REQUEST_USERS = 'REQUEST_USERS';
+export const RECEIVE_USERS = 'RECEIVE_USERS';
 
-export const getChannel = channel => ({
-    type: SELECT_CHANNEL,
-    channel,
+export const requestUsers = () => ({
+    type: REQUEST_USERS,
 });
-export const requestPosts = () => ({
-    type: REQUEST_POSTS,
-});
-export const receivedPosts = json => ({
-    type: RECEIVE_POSTS,
-    json: json.articles,
+export const receiveUsers = json => ({
+    type: RECEIVE_USERS,
+    json: json,
 });

@@ -10,6 +10,12 @@ import {createStore, applyMiddleware} from 'redux';
 import rootReducers from './reducers'
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
+const onStateChange = (function (global) {
+    global._state = this.getState()
+}.bind(store, global))
+store.subscribe(onStateChange)
+onStateChange()
+console.info('Application state is available via global _state object.', '_state=', global._state)
 ReactDOM.render(
     <Provider store={store}>
         <App />

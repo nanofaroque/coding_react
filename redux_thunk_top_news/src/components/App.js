@@ -5,4 +5,5 @@ const App = () => (
       <Button/>
     </div>
 )
+
 export default App;
