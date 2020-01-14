@@ -1,20 +1,37 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { fetchUsers } from '../services/fetchUsers'
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import fetchUsers from '../services/fetchUsers'
 
-const Button = ({getUsers}) => (
-    <button onClick={getUsers}
-            className='btn btn-primary btn-lg btn-block'
-            type="button">Press Me</button>
-)
+class Button extends Component {
+    showData = (data)=>{
+        const listItems = data.map((d) => <li key={d.name}>{d.name}</li>);
+        return (
+            <div>
+                {listItems }
+            </div>
+        );
+    };
+    render() {
+        return (
+            <div>
+                <button onClick={this.props.getUsers}
+                        className='btn btn-primary btn-lg btn-block'
+                        type="button">Press Me</button>
+                <div>
+                    {Object.keys(this.props.users).length===0?null:this.showData(this.props.users)}
+                </div>
+            </div>
+        )
+    }
+}
 
 const mapStateToProps = state => {
-    console.log('state'+state);
-    return {users:state.users}
+    console.log('state' + state.receiveUsers.users);
+    return {users: state.receiveUsers.users}
 };
-const mapDispatchToProps =(dispatch)=> {
+const mapDispatchToProps = (dispatch) => {
     return {
-        getUsers:()=>dispatch(fetchUsers()),
+        getUsers: () => dispatch(fetchUsers()),
     }
 };
-export default connect(mapStateToProps,mapDispatchToProps)(Button);
+export default connect(mapStateToProps, mapDispatchToProps)(Button);
