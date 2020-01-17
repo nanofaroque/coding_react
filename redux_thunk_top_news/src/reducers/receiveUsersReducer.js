@@ -1,6 +1,6 @@
 import {RECEIVE_USERS} from "../actions";
 const initialState = {
-    users: {},
+    users: [],
     isFetching: false,
     isError: false
 };
@@ -9,7 +9,7 @@ const receiveUsersReducer = (state=initialState, action) => {
         case RECEIVE_USERS:
             return {
                 ...state,
-                users: action.users,
+                users: state.users.concat(action.users),
                 isFetching: false,
                 isError: false
             };
