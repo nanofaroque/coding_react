@@ -1,5 +1,5 @@
-import {ERROR, errorActions, RECEIVE_USERS, receiveUsers, REQUEST_USERS} from "../../actions";
-import {requestUsers} from '../../actions'
+import {ERROR, errorActions, RECEIVE_USERS, receiveUsers, REQUEST_USERS} from "../../src/actions";
+import {requestUsers} from '../../src/actions'
 
 describe('actions', () => {
     it ('should create an action to make request to get users', () => {
