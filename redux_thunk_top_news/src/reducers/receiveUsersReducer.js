@@ -9,9 +9,7 @@ const receiveUsersReducer = (state=initialState, action) => {
         case RECEIVE_USERS:
             return {
                 ...state,
-                users: state.users.concat(action.users),
-                isFetching: false,
-                isError: false
+                users: state.users.concat(action.users)
             };
         default:
             return state;

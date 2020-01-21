@@ -4,9 +4,10 @@ import moxios from 'moxios';
 import expect from 'expect';
 import {RECEIVE_USERS, REQUEST_USERS} from "../../src/actions";
 import fetchUsers from '../../src/services/fetchUsers'
+
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
-const mock=[{
+const mock = [{
     id: 1,
     name: "Leanne Graham",
     username: "Bret",
@@ -28,9 +29,9 @@ const mock=[{
         catchPhrase: "Multi-layered client-server neural-net",
         bs: "harness real-time e-markets"
     }
-}]
-describe('getPosts actions', () => {
+}];
 
+describe('getusers actions', () => {
     beforeEach(function () {
         moxios.install();
     });
@@ -39,7 +40,7 @@ describe('getPosts actions', () => {
         moxios.uninstall();
     });
 
-    it('creates GET_POSTS_SUCCESS after successfuly fetching postse', () => {
+    it('creates RECEIVE_USER_SUCCESS after successfuly fetching USERS', () => {
         moxios.wait(() => {
             const request = moxios.requests.mostRecent();
             request.respondWith({
@@ -49,16 +50,14 @@ describe('getPosts actions', () => {
         });
 
         const expectedActions = [
-            { type: REQUEST_USERS },
-            { type: RECEIVE_USERS, users: mock },
+            {type: REQUEST_USERS},
+            {type: RECEIVE_USERS, users: mock},
         ];
 
-        const store = mockStore({ users: {} })
-
+        const store = mockStore({users: {}})
         return store.dispatch(fetchUsers()).then(() => {
-            // return of async actions
-            console.log('actions',JSON.stringify(store.getActions()))
+            console.log('actions', JSON.stringify(store.getActions()))
             expect(store.getActions()).toEqual(expectedActions);
-        }).catch(err=>console.log(err));
+        }).catch(err => console.log(err));
     });
 });

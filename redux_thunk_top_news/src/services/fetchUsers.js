@@ -2,11 +2,6 @@ import { receiveUsers, requestUsers, errorActions } from '../actions';
 import axios from 'axios';
 const fetchUsers = () => function (dispatch) {
     dispatch(requestUsers());
-   /* return fetch(`https://jsonplaceholder.typicode.com/users`)
-        .then(response => response.json())
-        .then((json) => dispatch(receiveUsers(json)))
-        .catch(error => dispatch(errorActions(error)))*/
-
     return axios({
         url: `https://jsonplaceholder.typicode.com/users`,
         method: 'get',
@@ -16,7 +11,7 @@ const fetchUsers = () => function (dispatch) {
             return res;
         })
         .catch(error => {
-            dispatch(error(error));
+            dispatch(errorActions(error));
             return error;
         });
 };

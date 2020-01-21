@@ -1,6 +1,6 @@
 import {REQUEST_USERS} from "../actions";
 const initialState = {
-    users: {},
+    users: [],
     isFetching: false,
     isError: false
 };
@@ -10,7 +10,7 @@ const requestUserReducer = (state= initialState, action) => {
             return {
                 ...state,
                 isFetching: true,
-                users: {}
+                users: []
             };
         default:
             return state;
