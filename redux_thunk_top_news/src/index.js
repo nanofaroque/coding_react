@@ -17,7 +17,7 @@ const store = createStore(
         thunkMiddleware, // lets us dispatch() functions
         loggerMiddleware // neat middleware that logs actions
     )
-)
+);
 ReactDOM.render(
     <Provider store={store}>
         <App />

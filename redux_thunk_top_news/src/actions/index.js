@@ -7,7 +7,7 @@ export const requestUsers = () => ({
 });
 export const receiveUsers = (users) => ({
     type: RECEIVE_USERS,
-    users: users
+    users
 });
 
 export const errorActions=(error)=>{
